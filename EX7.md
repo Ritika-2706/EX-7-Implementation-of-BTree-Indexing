@@ -2,6 +2,7 @@
 ## Date: 
 ## AIM: 
 To implement B-tree indexing and to search an element in the B-tree using python
+
 ## ALGORITHM:
 <div align="justify">
 1. Starting from the root node, compare k with the first key of the node.<br>
@@ -13,25 +14,30 @@ If k < next key, search the left child of this key (ie. k lies in between the fi
 Else, search the right child of the key.<br>
 5. Repeat steps 1 to 4 until the leaf is reached.<br>
 </div>
+
 ## PROGRAM:
-  
-  ```python
+
 # Searching a key on a B-tree in Python
 # Create a node
+
+```
 class BTreeNode:
   def __init__(self, leaf=False):
     self.leaf = leaf
     self.keys = []
     self.child = []
-
+```
 
 # Tree
+```
 class BTree:
   def __init__(self, t):
     self.root = BTreeNode(True)
     self.t = t
+```
 
-    # Insert node
+# Insert node
+```
   def insert(self, k):
     root = self.root
     if len(root.keys) == (2 * self.t) - 1:
@@ -42,8 +48,9 @@ class BTree:
       self.insert_non_full(temp, k)
     else:
       self.insert_non_full(root, k)
-
-    # Insert nonfull
+```
+# Insert nonfull
+```
   def insert_non_full(self, x, k):
     i = len(x.keys) - 1
     if x.leaf:
@@ -61,8 +68,10 @@ class BTree:
         if k[0] > x.keys[i][0]:
           i += 1
       self.insert_non_full(x.child[i], k)
+```
 
-    # Split the child
+# Split the child
+```
   def split_child(self, x, i):
     t = self.t
     y = x.child[i]
@@ -74,8 +83,9 @@ class BTree:
     if not y.leaf:
       z.child = y.child[t: 2 * t]
       y.child = y.child[0: t - 1]
-
+```
   # Print the tree
+```
   def print_tree(self, x, l=0):
     print("Level ", l, " ", len(x.keys), end=":")
     for i in x.keys:
@@ -85,8 +95,9 @@ class BTree:
     if len(x.child) > 0:
       for i in x.child:
         self.print_tree(i, l)
-
+```
   # Search key in the tree
+  ```
   def search_key(self, k, x=None):
     if x is not None:
       i = 0
@@ -119,9 +130,10 @@ def main():
 
 if __name__ == '__main__':
   main()
+
 ```
 ## OUTPUT:
-![image](https://github.com/dineshgl/EX-7-Implementation-of-BTree-Indexing/assets/143793356/a0988958-d08d-4bf3-a518-f46af62ca388)
+![Output](g1.png)
 
 ## RESULT:
 Thus the python program for the implementation of B-Tree Indexing has been executed successfully.
