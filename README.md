@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
 ```
 ## OUTPUT:
-![Output](g1.png)
+![g1](https://github.com/Ritika-2706/EX-7-Implementation-of-BTree-Indexing/assets/93427238/5ba7ab6c-5e70-485a-89f9-98fa14e56663)
 
 ## RESULT:
 Thus the python program for the implementation of B-Tree Indexing has been executed successfully.
